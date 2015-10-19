@@ -1,0 +1,102 @@
+<!doctype html>
+<html><head>
+    <meta charset="UTF-8"/>
+    <title>KML Export Example</title>
+    <script src="https://api-maps.yandex.ru/2.1/?mode=debug&lang=ru_RU&coordorder=longlat"></script>
+    <script src="base64.js"></script>
+    <script src="index.js"></script>
+    <script>
+        ymaps.ready(function () {
+            ymaps.modules.require(['kmlTool.start'], function (startKmlTool) {
+                startKmlTool();
+            });
+        })
+    </script>
+    <style>
+        html, html body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        #panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 300px;
+            border-right: 1px solid grey;
+        }
+
+        #map {
+            height: 100%;
+            margin-left: 301px;
+        }
+
+        #edit-balloon textarea{
+            width: 300px;
+            height: 160px;
+        }
+
+        #panel #map-name {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 50px;
+            line-height: 18px;
+            margin: 1px 3px;
+            display: block;
+            border-bottom: 1px solid gray;
+        }
+
+        #panel #map-name input {
+            display: block;
+            width: 288px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        #panel #objects-view {
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            list-style-type: decimal;
+            padding-right: 0 0 0 20px;
+            margin: 2px;
+        }
+
+        #panel #objects-view li {
+            padding: 1px 3px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #panel #get-code {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 30px;
+            line-height: 30px;
+            margin: 1px 3px;
+            border: 1px solid gray;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            background-color: lightgray;
+        }
+    </style>
+</head><body>
+    <div id="panel">
+        <div id="map-name">Название карты:<br/><input type="text" id="map-name-edit"/></div>
+        <ul id="objects-view"></ul>
+        <a href="javascript:void(0)" download="map.kml" id="get-code" target="_blank">Получить KML</a>
+    </div>
+    <div id="map"></div>
+</body></html>
