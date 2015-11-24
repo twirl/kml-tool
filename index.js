@@ -138,6 +138,7 @@ ymaps.modules.define('kmlTool.View', [
         this._markers.events
             .add('balloonopen', function (e) {
                 this._setupUpdateTracking(this._markers.indexOf(e.get('target')));
+                document.getElementById('object-content').focus();
             }, this)
             .add('balloonclose', function () {
                 this._saveListener.removeAll();
